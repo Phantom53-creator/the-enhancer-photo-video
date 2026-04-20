@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STOP Publishing Amateur Content — The Enhancer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #fff; color: #000; line-height: 1.5; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Alert Bar */
+        .alert-bar { background: #ff0000; color: white; text-align: center; padding: 12px; font-weight: 700; font-size: 0.9rem; }
+        
+        /* Hero */
+        .hero { padding: 80px 0 60px; text-align: center; background: #000; color: white; }
+        .hero h1 { font-size: 3.5rem; font-weight: 900; line-height: 1; margin-bottom: 30px; text-transform: uppercase; }
+        .hero h1 span { color: #ff0000; }
+        .hero-sub { font-size: 1.4rem; color: #ccc; max-width: 700px; margin: 0 auto 40px; }
+        .hero-cta { display: inline-block; background: #ff0000; color: white; padding: 20px 50px; font-size: 1.3rem; font-weight: 800; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        .price-highlight { margin-top: 30px; font-size: 1.2rem; }
+        .price-highlight .old { text-decoration: line-through; color: #666; margin-right: 15px; }
+        .price-highlight .new { color: #ff0000; font-size: 2rem; font-weight: 900; }
+        
+        /* Problem Section */
+        .problem { padding: 80px 0; background: #f5f5f5; }
+        .problem h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 30px; text-align: center; }
+        .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px; }
+        .problem-card { background: white; padding: 30px; border-left: 5px solid #ff0000; }
+        .problem-card h3 { font-size: 1.1rem; margin-bottom: 10px; color: #ff0000; }
+        
+        /* Solution */
+        .solution { padding: 80px 0; text-align: center; }
+        .solution h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 20px; }
+        .solution-badge { display: inline-block; background: #000; color: #ff0000; padding: 10px 25px; font-weight: 800; margin-bottom: 30px; }
+        .big-promise { font-size: 1.5rem; font-weight: 700; margin-bottom: 40px; }
+        
+        /* Features */
+        .features { padding: 60px 0; background: #000; color: white; }
+        .features h2 { text-align: center; font-size: 2rem; margin-bottom: 50px; }
+        .feature-row { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 40px; }
+        .feature-item { text-align: center; max-width: 200px; }
+        .feature-icon { font-size: 3rem; margin-bottom: 15px; }
+        .feature-item h3 { font-size: 1.1rem; margin-bottom: 10px; color: #ff0000; }
+        .feature-item p { font-size: 0.9rem; color: #999; }
+        
+        /* Proof */
+        .proof { padding: 80px 0; text-align: center; }
+        .proof h2 { font-size: 2rem; margin-bottom: 40px; }
+        .stats { display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; }
+        .stat-item { text-align: center; }
+        .stat-number { font-size: 4rem; font-weight: 900; color: #ff0000; }
+        .stat-label { font-size: 1rem; color: #666; text-transform: uppercase; }
+        
+        /* Offer */
+        .offer { padding: 100px 0; background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%); color: white; text-align: center; }
+        .offer h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .offer-box { background: rgba(0,0,0,0.2); padding: 50px; border-radius: 20px; max-width: 600px; margin: 0 auto; }
+        .offer-price { font-size: 5rem; font-weight: 900; margin: 20px 0; }
+        .offer-price span { font-size: 1.5rem; opacity: 0.8; }
+        .offer-was { text-decoration: line-through; opacity: 0.7; margin-bottom: 10px; }
+        .offer-btn { display: inline-block; background: #000; color: white; padding: 25px 60px; font-size: 1.4rem; font-weight: 800; text-decoration: none; margin-top: 30px; text-transform: uppercase; }
+        .offer-guarantee { margin-top: 30px; font-size: 0.95rem; opacity: 0.9; }
+        
+        /* FAQ */
+        .faq { padding: 80px 0; }
+        .faq h2 { text-align: center; font-size: 2rem; margin-bottom: 40px; }
+        .faq-item { border-bottom: 1px solid #ddd; padding: 25px 0; }
+        .faq-item h3 { font-size: 1.1rem; margin-bottom: 10px; }
+        .faq-item p { color: #666; }
+        
+        /* Final CTA */
+        .final-cta { padding: 100px 0; background: #000; color: white; text-align: center; }
+        .final-cta h2 { font-size: 2.5rem; margin-bottom: 30px; }
+        .final-cta p { font-size: 1.2rem; color: #999; margin-bottom: 40px; }
+        .final-btn { display: inline-block; background: #ff0000; color: white; padding: 25px 60px; font-size: 1.5rem; font-weight: 900; text-decoration: none; text-transform: uppercase; }
+        
+        footer { padding: 40px 0; text-align: center; color: #666; border-top: 1px solid #ddd; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .offer-price { font-size: 3.5rem; }
+            .stat-number { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="alert-bar">⚠️ FOUNDER PRICING ENDS SOON — ONLY $27 (REG $97)</div>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Your Content Looks <span>Amateur</span><br>And It's Costing You Sales</h1>
+            <p class="hero-sub">While your competitors publish crisp, professional 4K videos shot on their phones, you're stuck with blurry, low-quality content that screams "beginner."</p>
+            <a href="#offer" class="hero-cta">Fix My Content Now →</a>
+            <div class="price-highlight">
+                <span class="old">$97</span>
+                <span class="new">$27</span>
+                <span style="color: #666; margin-left: 10px;">(Founder Price)</span>
+            </div>
+        </div>
+    </section>
+    
+    <section class="problem">
+        <div class="container">
+            <h2>The Brutal Truth About Your Content</h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3>❌ BLURRY PRODUCT PHOTOS</h3>
+                    <p>Customers can't see details. They don't buy what they can't see clearly. You're losing sales every day.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>❌ LOW-RES VIDEOS</h3>
+                    <p>720p looks terrible in 2026. Viewers click away in 3 seconds. Your message never gets heard.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>❌ AMATEUR BRAND IMAGE</h3>
+                    <p>Poor quality = untrustworthy. Premium pricing becomes impossible. You're stuck competing on price.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>❌ WASTED POTENTIAL</h3>
+                    <p>Great products, great message, terrible presentation. Your content doesn't match your ambition.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="solution">
+        <div class="container">
+            <div class="solution-badge">INTRODUCING</div>
+            <h2>The Enhancer</h2>
+            <p class="big-promise">AI-Powered Image & Video Enhancement<br>That Transforms Amateur Content Into Professional 4K Assets</p>
+            <p style="font-size: 1.1rem; color: #666; max-width: 600px; margin: 0 auto;">Upload your blurry photos and low-res videos. Our AI enhances them to professional quality in minutes. No equipment. No editing skills. No waiting.</p>
+        </div>
+    </section>
+    
+    <section class="features">
+        <div class="container">
+            <h2>What You Get</h2>
+            <div class="feature-row">
+                <div class="feature-item">
+                    <div class="feature-icon">🖼️</div>
+                    <h3>4K IMAGES</h3>
+                    <p>Crisp, detailed photos from any source</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎥</div>
+                    <h3>4K VIDEOS</h3>
+                    <p>Professional video enhancement</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3>37 MINUTES</h3>
+                    <p>Lightning-fast turnaround</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <h3>PRIVATE</h3>
+                    <p>Auto-deleted after processing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="proof">
+        <div class="container">
+            <h2>Why Creators Choose The Enhancer</h2>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">4K</div>
+                    <div class="stat-label">Max Resolution</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">37</div>
+                    <div class="stat-label">Minutes Avg</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">$27</div>
+                    <div class="stat-label">One-Time Price</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="offer" id="offer">
+        <div class="container">
+            <h2>Limited Founder Pricing</h2>
+            <div class="offer-box">
+                <p class="offer-was">Regular Price: $97</p>
+                <div class="offer-price">$27<span>/one-time</span></div>
+                <p style="font-size: 1.1rem; margin: 20px 0;">✓ Unlimited Images<br>✓ Unlimited Videos<br>✓ 4K Output<br>✓ 7-Day Guarantee</p>
+                <a href="#" class="offer-btn">Get Access Now →</a>
+                <p class="offer-guarantee">🔒 Secure Payment • 7-Day Money-Back Guarantee • Instant Access</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="faq">
+        <div class="container">
+            <h2>Common Questions</h2>
+            <div class="faq-item">
+                <h3>Do I need technical skills?</h3>
+                <p>No. If you can upload a file, you can use The Enhancer. Our AI handles everything automatically.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What file formats do you accept?</h3>
+                <p>Images: JPG, PNG, TIFF, BMP. Videos: MP4, MOV, AVI, MKV. We support all major formats.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Is my content secure?</h3>
+                <p>Absolutely. Files are automatically deleted from our servers immediately after processing. We never store or share your content.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What if I'm not satisfied?</h3>
+                <p>We offer a 7-day money-back guarantee. If you're not blown away by the results, email us for a full refund. No questions asked.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="final-cta">
+        <div class="container">
+            <h2>Stop Letting Poor Content Kill Your Sales</h2>
+            <p>Every day you wait is another day of amateur content hurting your brand.<br>The Enhancer is ready. Your content is waiting.</p>
+            <a href="#offer" class="final-btn">Get The Enhancer — $27</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2026 The Enhancer. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
