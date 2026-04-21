@@ -9,15 +9,9 @@ import stripe
 
 app = Flask(__name__)
 
-# Stripe configuration - uses environment variables
-stripe_keys = {
-    'secret_key': os.environ.get('sk_test_51QzfTIRhuKMH7b3GZ7mrdaMmvjBwCUgF4DJLSbbwT2rWHL6Znv8DRhTfVDM11PvV5RKQlDzgXYxiYuabAhTPiTWB00zt9Mwxni', ''),
-    'publishable_key': os.environ.get('pk_test_51QzfTIRhuKMH7b3GR4Vbe0yTUadjEnflLqHzSAp7Ofn2LwXFYkUohxoFWA0VvJH2UMGLszAxYcLjnQMpOqN02f0U00aP3BPUmw', '')
-}
-
-# Only initialize stripe if keys are provided
-if stripe_keys['secret_key']:
-    stripe.api_key = stripe_keys['secret_key']
+# Stripe configuration - TEST KEYS for development
+stripe.api_key = 'sk_test_51QzfTIRhuKMH7b3GZ7mrdaMmvjBwCUgF4DJLSbbwT2rWHL6Znv8DRhTfVDM11PvV5RKQlDzgXYxiYuabAhTPiTWB00zt9Mwxni'
+stripe_publishable_key = 'pk_test_51QzfTIRhuKMH7b3GR4Vbe0yTUadjEnflLqHzSAp7Ofn2LwXFYkUohxoFWA0VvJH2UMGLszAxYcLjnQMpOqN02f0U00aP3BPUmw'
 
 # Route for main sales page
 @app.route('/')
@@ -47,19 +41,13 @@ def v3():
 @app.route('/checkout')
 def checkout():
     """Stripe checkout page"""
-    publishable_key = stripe_keys.get('publishable_key', '')
-    if not publishable_key:
-        return "Stripe not configured. Please set STRIPE_PUBLISHABLE_KEY environment variable.", 500
     return render_template_string(checkout_page, 
-                                 stripe_publishable_key=publishable_key)
+                                 stripe_publishable_key=stripe_publishable_key)
 
 # Create payment intent
 @app.route('/create-payment-intent', methods=['POST'])
 def create_payment():
     """Create a Stripe PaymentIntent"""
-    if not stripe_keys.get('secret_key'):
-        return jsonify({'error': 'Stripe not configured'}), 500
-    
     try:
         data = request.get_json()
         amount = data.get('amount', 2700)  # $27.00 in cents
@@ -72,7 +60,7 @@ def create_payment():
         
         return jsonify({
             'clientSecret': intent.client_secret,
-            'publishableKey': stripe_keys['publishable_key']
+            'publishableKey': stripe_publishable_key
         })
     except Exception as e:
         return jsonify({'error': str(e)}), 400
@@ -97,7 +85,7 @@ def status():
         "status": "operational",
         "service": "The Enhancer",
         "version": "1.0.0",
-        "stripe_configured": bool(stripe_keys.get('secret_key'))
+        "stripe_configured": bool(stripe.api_key)
     }
 
 # Checkout page HTML
