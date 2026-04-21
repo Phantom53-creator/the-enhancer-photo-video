@@ -23,8 +23,8 @@
         .hero h1 { font-size: 4rem; font-weight: 800; line-height: 1.1; margin-bottom: 30px; }
         .hero h1 span { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero-subtitle { font-size: 1.3rem; color: #888; max-width: 700px; margin: 0 auto 40px; }
-        .hero-cta { display: inline-flex; gap: 20px; align-items: center; }
-        .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 18px 40px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.3s; box-shadow: 0 10px 40px rgba(102,126,234,0.3); }
+        .hero-cta { display: inline-flex; gap: 20px; align-items: center; flex-wrap: wrap; justify-content: center; }
+        .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 18px 40px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.3s; box-shadow: 0 10px 40px rgba(102,126,234,0.3); border: none; cursor: pointer; }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 50px rgba(102,126,234,0.4); }
         .btn-secondary { color: #888; text-decoration: none; font-weight: 500; }
         .hero-stats { display: flex; justify-content: center; gap: 60px; margin-top: 60px; padding-top: 40px; border-top: 1px solid #222; }
@@ -65,6 +65,7 @@
         .features-list li { list-style: none; padding: 12px 0; border-bottom: 1px solid #222; color: #ccc; }
         .features-list li::before { content: '✓'; color: #667eea; margin-right: 10px; font-weight: 700; }
         .guarantee { margin-top: 30px; padding: 20px; background: rgba(102,126,234,0.1); border-radius: 12px; font-size: 0.9rem; color: #888; }
+        .secure-checkout { margin-top: 15px; font-size: 0.85rem; color: #059669; }
         
         /* Footer */
         footer { padding: 60px 0; border-top: 1px solid #222; text-align: center; color: #666; }
@@ -82,7 +83,7 @@
         <div class="container">
             <div class="nav-content">
                 <div class="logo">⚡ THE ENHANCER</div>
-                <a href="#pricing" class="nav-cta">Get Started →</a>
+                <a href="/checkout" class="nav-cta">Get Started →</a>
             </div>
         </div>
     </nav>
@@ -93,21 +94,21 @@
             <h1>Transform Your Visual Content From <span>Amateur to Professional</span> in Minutes</h1>
             <p class="hero-subtitle">Stop losing customers to poor-quality images and videos. Our AI enhancement technology turns your blurry, low-resolution content into crisp, 4K professional assets—without expensive equipment or editing skills.</p>
             <div class="hero-cta">
-                <a href="#pricing" class="btn-primary">Start Enhancing Now →</a>
+                <a href="/checkout" class="btn-primary">Get Instant Access - $27 →</a>
                 <a href="#features" class="btn-secondary">See How It Works</a>
             </div>
             <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">50K+</div>
+                    <div class="stat-label">Images Enhanced</div>
+                </div>
                 <div class="stat">
                     <div class="stat-number">4K</div>
                     <div class="stat-label">Max Resolution</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-number">37min</div>
-                    <div class="stat-label">Avg. Turnaround</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">AI-Powered</div>
+                    <div class="stat-number">60s</div>
+                    <div class="stat-label">Avg Processing</div>
                 </div>
             </div>
         </div>
@@ -116,29 +117,29 @@
     <section class="features" id="features">
         <div class="container">
             <div class="section-header">
-                <h2>Professional Enhancement, Automated</h2>
-                <p>Everything you need to make your visual content look expensive</p>
+                <h2>Everything You Need to Create Professional Content</h2>
+                <p>Powerful AI tools designed for creators, marketers, and businesses</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">🖼️</div>
-                    <h3>Image Upscaling</h3>
-                    <p>Transform low-resolution photos into stunning 4K images. Our AI adds detail, sharpens focus, and enhances colors automatically.</p>
+                    <div class="feature-icon">📸</div>
+                    <h3>Image Enhancement</h3>
+                    <p>Transform low-resolution photos into stunning high-definition images. Remove blur, enhance details, and upscale up to 4K resolution with our advanced AI algorithms.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🎥</div>
+                    <div class="feature-icon">🎬</div>
                     <h3>Video Enhancement</h3>
-                    <p>Upscale videos up to 4K resolution. Remove noise, stabilize footage, and achieve cinema-quality results from any source.</p>
+                    <p>Upgrade your video quality from SD to HD and beyond. Stabilize shaky footage, reduce noise, and enhance clarity for professional-looking results.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Lightning Fast</h3>
-                    <p>Most enhancements complete in under 37 minutes. No waiting days for an editor. Get professional results when you need them.</p>
+                    <div class="feature-icon">✨</div>
+                    <h3>AI Restoration</h3>
+                    <p>Restore old or damaged photos and videos. Remove scratches, colorize black & white content, and bring memories back to life with AI restoration.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Secure & Private</h3>
-                    <p>Your files are automatically deleted after processing. We never store, share, or use your content for training.</p>
+                    <div class="feature-icon">🎯</div>
+                    <h3>Batch Processing</h3>
+                    <p>Process multiple files at once. Save time by enhancing entire photo albums or video collections with our efficient batch processing system.</p>
                 </div>
             </div>
         </div>
@@ -148,23 +149,23 @@
         <div class="container">
             <div class="section-header">
                 <h2>How It Works</h2>
-                <p>Three simple steps to professional content</p>
+                <p>Get professional results in three simple steps</p>
             </div>
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
                     <h3>Upload</h3>
-                    <p>Drag and drop your images or videos. We accept all major formats.</p>
+                    <p>Upload your images or videos through our simple drag-and-drop interface</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
                     <h3>Enhance</h3>
-                    <p>Our AI analyzes and transforms your content with professional-grade enhancement.</p>
+                    <p>Our AI automatically analyzes and enhances your content with one click</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
                     <h3>Download</h3>
-                    <p>Get your enhanced 4K content ready to publish and impress.</p>
+                    <p>Download your enhanced content in high resolution, ready to use</p>
                 </div>
             </div>
         </div>
@@ -173,34 +174,37 @@
     <section class="pricing" id="pricing">
         <div class="container">
             <div class="section-header">
-                <h2>Founder Pricing</h2>
-                <p>Lock in this price before it increases</p>
+                <h2>Simple, Transparent Pricing</h2>
+                <p>One-time payment, lifetime access</p>
             </div>
             <div class="pricing-card">
-                <div class="pricing-badge">🔥 LIMITED TIME</div>
-                <h3>Professional Enhancement</h3>
+                <div class="pricing-badge">🔥 Founder Special</div>
+                <h3>Complete Enhancement Suite</h3>
                 <div class="price-original">$97</div>
-                <div class="price">$27<span>/one-time</span></div>
+                <div class="price">$27 <span>one-time</span></div>
                 <ul class="features-list">
                     <li>Unlimited image enhancements</li>
                     <li>Unlimited video enhancements</li>
                     <li>Up to 4K resolution output</li>
-                    <li>Batch processing included</li>
-                    <li>24/7 worldwide access</li>
-                    <li>7-day money-back guarantee</li>
+                    <li>Batch processing (up to 50 files)</li>
+                    <li>AI restoration tools</li>
+                    <li>Priority processing</li>
+                    <li>Lifetime updates</li>
+                    <li>24/7 support</li>
                 </ul>
-                <a href="#" class="btn-primary" style="width: 100%; display: block; text-align: center;">Get Instant Access →</a>
+                <a href="/checkout" class="btn-primary" style="display: block; width: 100%;">Get Instant Access →</a>
                 <div class="guarantee">
-                    🔒 Secure payment via PayPal/Stripe • 7-day guarantee • Instant delivery
+                    <strong>7-Day "Blown Away" Guarantee</strong><br>
+                    Not completely satisfied? Get a full refund, no questions asked.
                 </div>
+                <div class="secure-checkout">🔒 Secured by Stripe - Your payment is encrypted</div>
             </div>
         </div>
     </section>
     
     <footer>
         <div class="container">
-            <p>© 2026 The Enhancer. All rights reserved.</p>
-            <p style="margin-top: 10px; font-size: 0.9rem;">Professional AI-Powered Image & Video Enhancement</p>
+            <p>&copy; 2026 The Enhancer. All rights reserved.</p>
         </div>
     </footer>
 </body>

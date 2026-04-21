@@ -3,8 +3,7 @@ The Enhancer - Photo & Video Enhancement Service
 Main entrypoint with Stripe payment integration
 """
 
-from flask import Flask, send_from_directory, render_template_string, request, jsonify, abort
-import os
+from flask import Flask, send_from_directory, render_template_string, request, jsonify
 import stripe
 
 app = Flask(__name__)
@@ -41,8 +40,7 @@ def v3():
 @app.route('/checkout')
 def checkout():
     """Stripe checkout page"""
-    return render_template_string(checkout_page, 
-                                 stripe_publishable_key=stripe_publishable_key)
+    return render_template_string(CHECKOUT_HTML, stripe_publishable_key=stripe_publishable_key)
 
 # Create payment intent
 @app.route('/create-payment-intent', methods=['POST'])
@@ -69,13 +67,13 @@ def create_payment():
 @app.route('/success')
 def success():
     """Payment success page"""
-    return render_template_string(success_page)
+    return render_template_string(SUCCESS_HTML)
 
 # Payment cancel page
 @app.route('/cancel')
 def cancel():
     """Payment cancel page"""
-    return render_template_string(cancel_page)
+    return render_template_string(CANCEL_HTML)
 
 # API status endpoint
 @app.route('/api/status')
@@ -85,11 +83,12 @@ def status():
         "status": "operational",
         "service": "The Enhancer",
         "version": "1.0.0",
-        "stripe_configured": bool(stripe.api_key)
+        "stripe_configured": bool(stripe.api_key),
+        "pages_available": ["v1", "v2", "v3", "checkout", "success", "cancel"]
     }
 
 # Checkout page HTML
-checkout_page = """
+CHECKOUT_HTML = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -294,7 +293,7 @@ checkout_page = """
 """
 
 # Success page HTML
-success_page = """
+SUCCESS_HTML = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -400,7 +399,7 @@ success_page = """
 """
 
 # Cancel page HTML
-cancel_page = """
+CANCEL_HTML = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
