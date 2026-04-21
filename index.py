@@ -11,8 +11,8 @@ app = Flask(__name__)
 
 # Stripe configuration - uses environment variables
 stripe_keys = {
-    'secret_key': os.environ.get('STRIPE_SECRET_KEY', ''),
-    'publishable_key': os.environ.get('STRIPE_PUBLISHABLE_KEY', '')
+    'secret_key': os.environ.get('sk_test_51QzfTIRhuKMH7b3GZ7mrdaMmvjBwCUgF4DJLSbbwT2rWHL6Znv8DRhTfVDM11PvV5RKQlDzgXYxiYuabAhTPiTWB00zt9Mwxni', ''),
+    'publishable_key': os.environ.get('pk_test_51QzfTIRhuKMH7b3GR4Vbe0yTUadjEnflLqHzSAp7Ofn2LwXFYkUohxoFWA0VvJH2UMGLszAxYcLjnQMpOqN02f0U00aP3BPUmw', '')
 }
 
 # Only initialize stripe if keys are provided
