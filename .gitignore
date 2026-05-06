@@ -1,0 +1,8 @@
+# Sensitive credentials - never commit
+credentials/
+
+# Temporary onboarding files
+onboarding-progress.json
+
+# OpenClaw internal state
+.openclaw/
