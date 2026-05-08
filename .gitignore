@@ -6,3 +6,12 @@ onboarding-progress.json
 
 # OpenClaw internal state
 .openclaw/
+
+# Python environment and cache
+.env
+.venv/
+__pycache__/
+*.log
+
+# System files
+.DS_Store
